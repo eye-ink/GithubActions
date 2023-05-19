@@ -16,7 +16,7 @@ jobs:
               arch: 'ios'
               dir: '${{ github.workspace }}/qtInstall/'
               install-deps: 'true'
-              modules: 'qtcharts qtwebengine'
+              modules: 'qtcharts'
               archives: 'qtbase qtsvg'
               cache: 'false'
               cache-key-prefix: 'install-qt-action'
