@@ -4,6 +4,8 @@ jobs:
   my-job:
     runs-on: macos-latest
     steps:
+          - name: Install Qt for mac
+            run: 'aqt install-qt mac ios 6.4.2 ios'
           - name: Install Qt
             uses: jurplel/install-qt-action@v3
             with:
