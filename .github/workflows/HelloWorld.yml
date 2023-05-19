@@ -1,8 +1,26 @@
-name: hello-world
+name: Qt6xInstall
 on: push
 jobs:
   my-job:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
-      - name: my-step
-        run: echo "Hello World!"
+          - name: Install Qt
+            uses: jurplel/install-qt-action@v3
+            with:
+              version: '6.4.2'
+              host: 'mac'
+              target: 'ios'
+              arch: 'ios'
+              dir: '${{ github.workspace }}/qtInstall/'
+              install-deps: 'true'
+              modules: 'qtcharts qtwebengine'
+              archives: 'qtbase qtsvg'
+              cache: 'false'
+              cache-key-prefix: 'install-qt-action'
+              setup-python: 'true'
+              tools: 'tools_ifw tools_qtcreator,qt.tools.qtcreator'
+              set-env: 'true'
+              tools-only: 'false'
+              aqtversion: '==3.1.*'
+              py7zrversion: '==0.20.*'
+              extra: '--external 7z'
