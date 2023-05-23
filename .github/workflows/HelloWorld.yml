@@ -1,12 +1,16 @@
 name: Qt6xInstall
-on: push
+on:
+  push:
+    branches: 
+      - dev
 jobs:
-  my-job:
+  Build_Focus_App:
     runs-on: macos-latest
     steps:
           - name: Install Qt for mac.
-#             run: 'python3 -m pip install aqtinstall==3.1.* && aqt install-qt mac desktop 6.4.2 ios'
-            run: 'python3 -m pip install aqtinstall==3.1.* && aqt install-qt mac desktop 6.4.2 clang_64'
+            run: |
+              python3 -m pip install aqtinstall==3.1.*
+              aqt install-qt mac desktop 6.4.2 clang_64
 #           - name: Install Qt
 #             uses: jurplel/install-qt-action@v3
 #             with:
@@ -27,7 +31,7 @@ jobs:
 #               aqtversion: '==3.1.*'
 #               py7zrversion: '==0.20.*'
 #               extra: '--external 7z'
-          - name: Install Qt.
+          - name: Install Qt for iOS.
             uses: jurplel/install-qt-action@v3
             with:
               aqtversion: '==3.1.*'
@@ -39,7 +43,9 @@ jobs:
               dir: '${{ github.workspace }}/qtInstall/'
               modules: 'qt3d qtcharts qtconnectivity qtdatavis3d qthttpserver qtimageformats qtlottie qtmultimedia qtnetworkauth qtpdf qtpositioning qtquick3dphysics qtremoteobjects qtscxml qtsensors qtserialbus qtspeech qtvirtualkeyboard qtwebchannel qtwebsockets qtwebview qt5compat qtquick3d qtquicktimeline qtshadertools'
           - name: Configuring GitHub.
-            run: 'git config --global user.name "eye-ink"'
+            run: |
+              git config --global user.name ${{ secrets.GH_Username }}
+              git config --global user.email "rjain@cybercraft.llc"
           - name: Cloning Focus Source from repo.
             run: 'git clone --recursive https://github.com/Cybercraft-llc/Eyeguide.git'
           - name: Running Cmake.
