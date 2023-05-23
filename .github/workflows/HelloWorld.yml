@@ -15,7 +15,7 @@ jobs:
               repository: 'Cybercraft-llc/Eyeguide'
               set-safe-directory: '${{ github.workspace }}/dev'
               ref: 'dev'
-              token: ${{ secrets.PAT_TOKEN }}
+              token: ${{ secrets.PAT_TOKEN_REPO }}
           - name: Install Qt for mac.
             run: |
               python3 -m pip install aqtinstall==3.1.*
