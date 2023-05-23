@@ -12,7 +12,8 @@ jobs:
           - name: Checkout
             uses: actions/checkout@v3
             with:
-              set-safe-directory: '${{ github.workspace }}/'
+#               path:'dev'
+              set-safe-directory: '${{ github.workspace }}/dev'
           - name: Install Qt for mac.
             run: |
               python3 -m pip install aqtinstall==3.1.*
