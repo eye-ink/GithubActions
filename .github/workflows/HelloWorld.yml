@@ -3,6 +3,8 @@ on:
   push:
     branches: 
       - dev
+      - main
+      - master
 jobs:
   Build_Focus_App:
     runs-on: macos-latest
